@@ -1,0 +1,93 @@
+**Feb 23 Meeting**
+Finish the poll by next meeting: https://strawpoll.com/1MnwO2ONAn7
+
+**Mar 1 Meeting**
+Choose the topic of Healthcare Management System Database
+Before next meeting, finish the initial study part
+(Business scenario) (Ziwei) done
+Assumptions
+Constraints
+Limitations
+Conceptual model (Ziwei) done
+How DBLC would help make the system more efficient in this business scenario (Ziwei)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Mar 3
+
+**Business scenario**
+
+To enhance the efficiency of operating medical information and the security and privacy of patients' data, a Healthcare Management System(HMS) Database is necessary. This database contains patient data, medical records, appointment scheduling, billing information, and staff management. There are several business scenarios that require information to be entered into the HMS database, as follows.
+
+First, new patients provide their personal and medical history information upon their first visit. Therefore, they have a unique patient profile in the HMS database that includes contact information, medical history, allergies, and insurance details. Second, patients can schedule appointments online. The HMS Database helps manage doctor schedules and send appointment reminders to patients. In addition, doctors and medical staff will update patients' treatment plans, prescriptions, and test results directly into the patient's electronic medical records within the HMS Database. Also, the billing information is stored in the HMS database, allowing patients to track payments and balances. Most importantly, sensitive information like social security numbers and passwords are encrypted within the database.
+
+**Conceptual model**
+
+1. Patients
+PatientID (Primary Key): Unique identifier for each patient.
+FirstName: Patient's first name.
+LastName: Patient's last name.
+DOB: Date of birth.
+Gender: Gender.
+Address: Contact address.
+Phone: Contact phone number.
+Email: Contact email address.
+EmergencyContact: Emergency contact information.
+
+2. Medical Records
+RecordID (Primary Key): Unique identifier for each medical record.
+PatientID (Foreign Key): Linked to the Patients entity.
+Date: Date of the medical record entry.
+Description: Description of the medical condition, treatment, etc.
+DoctorID (Foreign Key): Doctor who attended to the patient.
+
+3. Appointments
+AppointmentID (Primary Key): Unique identifier for each appointment.
+PatientID (Foreign Key): Linked to the Patients entity.
+DoctorID (Foreign Key): Linked to the Doctors entity.
+AppointmentDate: Scheduled date and time for the appointment.
+Status: Status of the appointment (e.g., scheduled, completed, canceled).
+Purpose: Reason for the appointment.
+
+4. Doctors
+DoctorID (Primary Key): Unique identifier for each doctor.
+FirstName: Doctor's first name.
+LastName: Doctor's last name.
+Specialization: Medical specialization.
+Phone: Contact phone number.
+Email: Contact email address.
+
+5. Departments
+DepartmentID (Primary Key): Unique identifier for each department.
+Name: Name of the department.
+Location: Physical location or wing of the healthcare facility.
+Phone: Contact phone number.
+
+6. Staff
+StaffID (Primary Key): Unique identifier for each staff member.
+FirstName: Staff member's first name.
+LastName: Staff member's last name.
+Role: Role within the healthcare facility (e.g., nurse, administrative staff, technician).
+DepartmentID (Foreign Key): Linked to the Departments entity.
+Phone: Contact phone number.
+Email: Contact email address.
+
+7. Billing
+BillID (Primary Key): Unique identifier for each billing record.
+PatientID (Foreign Key): Linked to the Patients entity.
+Date: Date of the billing.
+Amount: Total amount to be paid.
+Status: Status of the bill (e.g., pending, paid, overdue).
+
+8. Insurance
+InsuranceID (Primary Key): Unique identifier for each insurance record.
+PatientID (Foreign Key): Linked to the Patients entity.
+ProviderName: Name of the insurance provider.
+PolicyNumber: Insurance policy number.
+CoverageDetails: Details of what the insurance covers.
+
+Relationships:
+A Patient can have multiple Medical Records, Appointments, Billing Records, and an Insurance record.
+Appointments link Patients with Doctors, indicating which doctor is seeing which patient.
+Doctors and Staff are associated with Departments, indicating their place of work within the healthcare facility.
+
